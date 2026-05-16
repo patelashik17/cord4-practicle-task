@@ -1,5 +1,7 @@
 # Payout Management MVP
 
+#App tour: https://jam.dev/c/8b823b8d-0faa-41ae-a5af-dac1f6a7ee4a
+
 Full-stack payout management system — Next.js 15, MongoDB, Tailwind CSS, JWT auth.
 
 ## Demo Credentials
@@ -8,6 +10,7 @@ Full-stack payout management system — Next.js 15, MongoDB, Tailwind CSS, JWT a
 |---------|--------------------|----------|
 | OPS     | ops@demo.com       | ops123   |
 | FINANCE | finance@demo.com   | fin123   |
+
 
 ## Run Locally (< 5 min)
 

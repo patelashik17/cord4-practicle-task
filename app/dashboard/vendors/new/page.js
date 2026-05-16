@@ -70,31 +70,57 @@ export default function NewVendorPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">UPI ID</label>
+            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+              UPI ID <span className="text-red-400">*</span>
+
+            </label>
             <input
               value={form.upi_id}
               onChange={(e) => setForm({ ...form, upi_id: e.target.value })}
               placeholder="vendor@upi"
+              required
+              pattern="^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$"
               className="w-full bg-[#0f1117] border border-[#2a2d3a] rounded-lg px-3.5 py-2.5 text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition text-sm"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">Bank Account</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1.5">
+                Bank Account <span className="text-red-400">*</span>
+              </label>
               <input
                 value={form.bank_account}
-                onChange={(e) => setForm({ ...form, bank_account: e.target.value })}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    bank_account: e.target.value.replace(/\D/g, ''),
+                  })
+                }
                 placeholder="1234567890"
+                required
+                minLength={9}
+                maxLength={18}
+                pattern="[0-9]{9,18}"
                 className="w-full bg-[#0f1117] border border-[#2a2d3a] rounded-lg px-3.5 py-2.5 text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition text-sm"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">IFSC Code</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1.5">
+                IFSC Code <span className="text-red-400">*</span>
+              </label>
               <input
                 value={form.ifsc}
-                onChange={(e) => setForm({ ...form, ifsc: e.target.value })}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    ifsc: e.target.value.toUpperCase(),
+                  })
+                }
                 placeholder="HDFC0001234"
+                required
+                maxLength={11}
+                pattern="^[A-Z]{4}0[A-Z0-9]{6}$"
                 className="w-full bg-[#0f1117] border border-[#2a2d3a] rounded-lg px-3.5 py-2.5 text-white placeholder-gray-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition text-sm"
               />
             </div>
